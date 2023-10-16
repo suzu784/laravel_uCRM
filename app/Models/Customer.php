@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -31,5 +32,10 @@ class Customer extends Model
                 ->orWhere('tel', 'like', $input . '%');
             }
         }
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
     }
 }
